@@ -1,0 +1,30 @@
+
+<af-group
+    ng-if="entryController.$type==='group'"
+    controller="entryController"></af-group>
+
+<af-form
+    ng-if="entryController.$type==='form'"
+        controller="entryController"></af-form>
+
+<af-button
+    ng-if="entryController.$type==='button'"
+    controller="entryController"></af-button>
+
+<af-message
+    ng-if="entryController.$type==='message'"
+    controller="entryController"></af-message>
+
+<af-field 
+    ng-if="entryController.$type==='field'"
+    controller="entryController" ></af-field>
+
+<af-modal
+    ng-if="entryController.$type==='modal'"
+    controller="entryController"
+    ></af-modal>
+
+<af-modal-selector
+    ng-if="entryController.$type==='modalSelector'"
+    controller="entryController"
+    ></af-modal-selector>
