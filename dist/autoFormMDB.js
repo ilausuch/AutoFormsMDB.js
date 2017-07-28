@@ -12,7 +12,7 @@ AutoFormMDB.directive('afButton', function() {
 
     let controller = ['$scope','$timeout','$attrs', function ($scope,$timeout,$attrs) {
             $scope.$onClick=function(){
-                $scope.controller.onClick($scope.model);
+                $scope.controller.$onClick();
             };
     }];
 
@@ -38,8 +38,11 @@ AutoFormMDB.directive('afField', function() {
 
     let controller = ['$scope','$timeout','$attrs', function ($scope,$timeout,$attrs) {
         $scope.model=$scope.controller.context.model;
-        $scope.$onChange=function(){
-            $scope.onChange({
+
+                $scope.$onChange=function(){
+            $scope.controller.updateState();
+
+                        $scope.onChange({
                 model:$scope.model,
                 field:$scope.controller.field
             });
@@ -110,6 +113,28 @@ AutoFormMDB.directive('afGroup', function() {
                 scope.templateContentUrl = scope.controller.templateContentUrl || AutoFormMDB.templates+"/afGroupContent.html";
             },
             template:'<div ng-include="templateUrl" ng-if="templateUrl"></div>'
+    };
+})
+
+AutoFormMDB.directive('afLink', function() {
+    let scope={
+        controller: '='
+    };
+
+    let controller = ['$scope','$timeout','$attrs', function ($scope,$timeout,$attrs) {
+    }];
+
+
+
+    return {
+            restrict: 'E',
+            scope: scope,
+            controller: controller,
+
+            link: function (scope, element, attrs) {
+                scope.contentUrl = attrs.templateUrl || AutoFormMDB.templates+"/afLink.html";
+            },
+            template:'<div ng-include="contentUrl" ng-if="contentUrl"></div>'
     };
 })
 

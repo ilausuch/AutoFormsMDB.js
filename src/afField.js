@@ -10,7 +10,10 @@ AutoFormMDB.directive('afField', function() {
 
     let controller = ['$scope','$timeout','$attrs', function ($scope,$timeout,$attrs) {
         $scope.model=$scope.controller.context.model;
+        
         $scope.$onChange=function(){
+            $scope.controller.updateState();
+            
             $scope.onChange({
                 model:$scope.model,
                 field:$scope.controller.field
