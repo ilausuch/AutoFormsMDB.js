@@ -40,10 +40,29 @@
             required="controller.required"
             ></mdb-radio-group>
     </div>
-
-    <mdb-checkbox label="controller.label|translate" model="model" field="controller.field" 
-                  ng-if="controller.type==='bool'"
-                  on-change="$onChange()"
-                  required="controller.required"
-                  ></mdb-checkbox>
+    
+    <div ng-if="controller.type==='bool'" style="margin-bottom: 2em">
+        <mdb-checkbox label="controller.label|translate" model="model" field="controller.field" 
+                      on-change="$onChange()"
+                      required="controller.required"
+                      ></mdb-checkbox>
+    </div>
+    
+    <div ng-if="controller.type==='date'">
+        <mdb-date 
+                label="controller.label|translate" 
+                model="model" field="controller.field" 
+                required="controller.required"
+                
+                on-change="$onChange()"
+                
+                locale-today="'Today'|translate"
+                locale-today="'Clear'|translate"
+                locale-today="'Close'|translate"
+                
+                config="controller.dateConfig"
+                available-dates="controller.availableDates"
+                use-momentjs="true"
+                ></mdb-date>
+    </div>
 </div>

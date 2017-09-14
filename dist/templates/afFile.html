@@ -1,0 +1,15 @@
+<div ng-if="controller.visible">
+    <mdb-file 
+            label="controller.label|translate" 
+            model="model" field="controller.field"
+            button-label="controller.buttonLabel|translate"
+            placeholder-label="controller.placeholderLabel|translate"
+            upload-file-links-desp="controller.uploadFileLinksDesp"
+            
+            upload-function="controller.uploadFunction" 
+            upload-url="controller.uploadUrl"
+            upload-result-parser="controller.uploadResultParser"
+            
+            required="true" 
+            on-change="$onChange()"></mdb-file>
+</div>
